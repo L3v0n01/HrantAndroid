@@ -13,12 +13,16 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        val text = findViewById<TextView>(R.id.hello_world)
+        val text:TextView = findViewById(R.id.hello_world)
         text.setOnClickListener {
-            startActivity(Intent(this, SecondActivity::class.java))
+           shareText ((it as TextView).text.toString())
         }
+        val thread = Thread(object : Runnable {
+            override fun run() {
+            }
+        })
+        thread.start()
     }
-
 
     override fun onStart() {
         super.onStart()
@@ -38,7 +42,6 @@ class MainActivity : AppCompatActivity() {
     override fun onPause() {
         super.onPause()
         Log.i(TAG, "onPause")
-
     }
 
     override fun onStop() {
