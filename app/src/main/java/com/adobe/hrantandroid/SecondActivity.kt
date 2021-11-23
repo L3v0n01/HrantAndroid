@@ -25,7 +25,7 @@ class SecondActivity : AppCompatActivity(R.layout.activity_second) {
         val imageView: AppCompatImageView = findViewById(R.id.appCompatImageView)
         val input: AppCompatEditText = findViewById(R.id.input_et)
         imageView.setOnClickListener {
-            textView.text = input.text
+            shareText(input.text.toString())
         }
         input.imeOptions=EditorInfo.IME_ACTION_DONE
         input.setOnEditorActionListener { _, p1, _ ->
@@ -34,5 +34,7 @@ class SecondActivity : AppCompatActivity(R.layout.activity_second) {
                 true
             } else false
         }
+
+        textView.text = intent.getStringExtra("key")
     }
 }

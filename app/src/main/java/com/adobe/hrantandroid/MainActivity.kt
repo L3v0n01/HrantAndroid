@@ -13,9 +13,13 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        val text:TextView = findViewById(R.id.hello_world)
+        val text = findViewById<TextView>(R.id.hello_world)
         text.setOnClickListener {
-           shareText ((it as TextView).text.toString())
+            val intent= Intent(this, SecondActivity::class.java)
+            intent.apply {
+                putExtra("key", (text as TextView).text.toString())
+            }
+            startActivity(intent)
         }
         val thread = Thread(object : Runnable {
             override fun run() {
