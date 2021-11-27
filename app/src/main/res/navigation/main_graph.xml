@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_graph"
+    app:startDestination="@id/firstFragment">
+
+    <fragment
+        android:id="@+id/firstFragment"
+        android:name="com.adobe.hrantandroid.FirstFragment"
+        tools:layout="@layout/activity_second"
+        android:label="FirstFragment" >
+        <action
+            android:id="@+id/action_firstFragment_to_secondFragment"
+            app:destination="@id/secondFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/secondFragment"
+        android:name="com.adobe.hrantandroid.SecondFragment"
+        android:label="SecondFragment"
+        tools:layout="@layout/activity_third"
+        >
+        <action
+            android:id="@+id/action_secondFragment_to_fragmentThird"
+            app:destination="@id/fragmentThird" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentThird"
+        android:name="com.adobe.hrantandroid.FragmentThird"
+        android:label="FragmentThird"
+        tools:layout="@layout/activity_fourth"
+        >
+
+        <action
+            android:id="@+id/action_fragmentThird_to_fragmentFourth"
+            app:destination="@id/fragmentFourth"
+            app:popUpTo="@id/secondFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentFourth"
+        android:name="com.adobe.hrantandroid.FragmentFourth"
+        android:label="FragmentFourth"
+        tools:layout="@layout/activity_fifth"/>
+
+</navigation>
